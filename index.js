@@ -8,11 +8,17 @@ var app = express()
 app.set("view engine", "hbs")
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}))
+app.use(methodOverride('_method'))
 //connects assets like stylesheets:
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/public'));
 
 app.listen(4000, function(){
   console.log("your port is working you fugly slut");
 })
 
 app.get("/burnbook", girlsController.index)
+app.get("/girls/new", girlsController.new)
+app.post("/burnbook", girlsController.create)
+app.get("/girls/:id", girlsController.show)
+// app.get("/girls/:id/edit", girlsController.edit)

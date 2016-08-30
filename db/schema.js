@@ -1,6 +1,5 @@
-var mongoose = require('mongoose')
-var Schema = mongoose.Schema
-var ObjectId = Schema.ObjectId
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema, ObjectId = Schema.ObjectId
 
 //define schemas
 var GirlSchema = new Schema({
