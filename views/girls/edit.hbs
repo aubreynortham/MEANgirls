@@ -1,0 +1,14 @@
+<h2>Edit {{girl.name}}'s Burn Page</h2>
+<form action="/girls/{{girl._id}}?_method=put" method="post">
+<label>Name: </label>
+<input type="text" name="name" value="{{girl.name}}">
+<label>Offense: </label>
+<input type="text" name="offense" value="{{girl.offense}}">
+<label>Image: </label>
+<input type="text" name="image" value="{{girl.image}}">
+<input type="submit">
+</form>
+
+<form action="/girls/{{girl._id}}?_method=delete" method="post">
+  <input type="submit" value="RIP OUT THE PAGE BEFORE THE PRINCIPAL SEES!!">
+</form>
