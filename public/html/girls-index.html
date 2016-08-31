@@ -1,5 +1,7 @@
 <h2>This is the updated index file</h2>
 
 <div data-ng-repeat="girl in GirlIndexControllerVM.girls">
-  <p>{{girl.name}}</p>
+  <p><a data-ui-sref="girlShow({id: girl.id})"></a>{{girl.name}}</p>
+  <p>{{girl.offense}}</p>
+  <img ng-src="{{girl.image}}" class="smallpic" alt="{{girl.name}}">
 </div>
