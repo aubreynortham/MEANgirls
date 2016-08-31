@@ -59,7 +59,16 @@
 
    function GirlShowControllerFunction(GirlFactory, $stateParams){
      var vm = this;
-     vm.girl = GirlFactory.get({id: $stateParams.id})
-   }
+     vm.girl = GirlFactory.get({id: $stateParams.id});
+     //update within show
+     vm.update = function(){
+       vm.girl.$update({id: $stateParams.id})
+       console.log(vm.girl);
+     };
+     //delete within show
+     vm.delete = function() {
+       vm.girl.$delete({id: $stateParams.id});
+     }
+   };
 
  })();
