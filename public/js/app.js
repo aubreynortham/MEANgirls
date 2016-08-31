@@ -17,7 +17,12 @@
    .controller("GirlIndexController", [
      "GirlFactory",
      GirlIndexControllerFunction
-   ]);
+   ])
+   .controller("GirlShowController", [
+     "GirlFactory",
+     "$stateParams",
+     GirlShowControllerFunction
+   ])
 
    function Router($stateProvider){
      $stateProvider
@@ -31,6 +36,12 @@
        controller: "GirlIndexController",
        controllerAs: "GirlIndexControllerVM"
      })
+     .state("show", {
+       url: "/girls/:id",
+       templateUrl: "../html/girls-show.html",
+       controller: "GirlShowController",
+       controllerAs: "GirlShowControllerVM"
+     })
    }
 
    function GirlFactoryFunction($resource){
@@ -38,12 +49,17 @@
        update: {method: "PUT"}
      });
      GFF.all = GFF.query();
-     return GFF;
+     return GFF
    }
 
    function GirlIndexControllerFunction(GirlFactory){
      var vm = this;
-     vm.girls = GirlFactory.all
+     vm.girls = GirlFactory.query();
+   }
+
+   function GirlShowControllerFunction(GirlFactory, $stateParams){
+     var vm = this;
+     vm.girl = GirlFactory.get({id: $stateParams.id})
    }
 
  })();
