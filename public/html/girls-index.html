@@ -1,13 +1,15 @@
 <button data-ng-hide="newGirl" data-ng-click="newGirl = !newGirl">New Burn</button>
 <form data-ng-show="newGirl" data-ng-submit="GirlIndexControllerVM.create(); newGirl = !newGirl">
   <input placeholder="The Person" data-ng-model="GirlIndexControllerVM.addgirl.name" />
-  <textarea placeholder="The Offense" data-ng-model="GirlIndexControllerVM.addgirl.offense"></textarea>
+  <input placeholder="The Offense" data-ng-model="GirlIndexControllerVM.addgirl.offense" />
   <input placeholder="Image" data-ng-model="GirlIndexControllerVM.addgirl.image" />
   <button type="submit">Add it to the book</button>
 </form>
 
 <div data-ng-repeat="girl in GirlIndexControllerVM.girls">
-  <h2><a data-ui-sref="show({id: girl._id})">{{girl.name}}</a></h2>
-  <p>{{girl.offense}}</p>
-  <img ng-src="{{girl.image}}" class="smallpic" alt="{{girl.name}}">
+  <a data-ui-sref="show({id: girl._id})">
+    <h2>{{girl.name}}</h2>
+    <!-- <p>{{girl.offense}}</p> -->
+    <img ng-src="{{girl.image}}" class="smallpic" alt="{{girl.name}}">
+  </a>
 </div>
