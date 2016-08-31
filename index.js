@@ -21,12 +21,12 @@ app.get("/", function(req, res){
   res.render("girls")
 })
 
-app.get("/burnbook", girlsController.index)
-app.get("/girls/new", girlsController.new)
-app.post("/burnbook", girlsController.create)
-app.get("/girls/:id", girlsController.show)
-app.get("/girls/:id/edit", girlsController.edit)
-app.put("/girls/:id", girlsController.update)
-app.delete("/girls/:id", girlsController.delete)
+app.get("/api/girls", girlsController.index) //updated index route
+// app.get("/girls/new", girlsController.new)
+app.post("/api/girls", girlsController.create)
+app.get("/api/girls/:id", girlsController.show) //updated show route
+// app.get("/girls/:id/edit", girlsController.edit)
+app.put("/api/girls/:id", girlsController.update) //updated the update route
+app.delete("/api/girls/:id", girlsController.delete) //updated delete route
 
 app.use(require("better-express-errors")(app))

@@ -9,6 +9,14 @@
    .config([
      "$stateProvider",
      Router
+   ])
+   .factory("GirlFactory", [
+     "$resource",
+     GirlFactoryFunction
+   ])
+   .controller("GirlIndexController", [
+     "GirlFactory",
+     GirlIndexControllerFunction
    ]);
 
    function Router($stateProvider){
@@ -19,8 +27,23 @@
      })
      .state("index", {
        url: "/burnbook",
-       template: "<h2>This is where all the ppl would be</h2>"
+       templateUrl: "../html/girls-index.html",
+       controller: "GirlIndexController",
+       controllerAs: "GirlIndexControllerVM"
      })
+   }
+
+   function GirlFactoryFunction($resource){
+     var GFF = $resource("/api/girls/:id", {}, {
+       update: {method: "PUT"}
+     });
+     GFF.all = GFF.query();
+     return GFF;
+   }
+
+   function GirlIndexControllerFunction(GirlFactory){
+     var vm = this;
+     vm.girls = GirlFactory.all
    }
 
  })();
