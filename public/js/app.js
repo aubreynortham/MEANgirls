@@ -16,6 +16,7 @@
    ])
    .controller("GirlIndexController", [
      "GirlFactory",
+     "$state",
      GirlIndexControllerFunction
    ])
    .controller("GirlShowController", [
@@ -52,9 +53,16 @@
      return GFF
    }
 
-   function GirlIndexControllerFunction(GirlFactory){
+   function GirlIndexControllerFunction(GirlFactory, $state){
      var vm = this;
      vm.girls = GirlFactory.query();
+     vm.addgirl = new GirlFactory();
+
+     vm.create = function($state){
+       vm.addgirl.$save().then(function(res) {
+         vm.girls.push(res)
+       })
+     };
    }
 
    function GirlShowControllerFunction(GirlFactory, $stateParams){
