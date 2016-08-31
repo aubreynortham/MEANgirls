@@ -1,7 +1,30 @@
 .smallpic {
   width: 100px;
   height: auto;
+  border-bottom: 30px solid rgba(217, 212, 184, 0.72);
+  border-top: 30px solid rgba(217, 212, 184, 0.72);
+  box-shadow: 0px 2px 0px #888888;
+  padding: 0 20px;
+
 }
 .largepic {
-  
+
+}
+#burnbook {
+  height: 400px;
+  box-shadow: 10px 10px 5px #888888;
+}
+body {
+  font-family: 'Permanent Marker', cursive;
+  color: rgb(177, 7, 140);
+  text-align: center;
+  background: url(http://i.imgur.com/VroEXH6.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+a {
+  text-decoration: none;
+  color: rgb(177, 7, 140);
 }
