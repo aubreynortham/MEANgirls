@@ -17,6 +17,10 @@ app.listen(4000, function(){
   console.log("your port is working you fugly slut");
 })
 
+app.get("/", function(req, res){
+  res.render("girls")
+})
+
 app.get("/burnbook", girlsController.index)
 app.get("/girls/new", girlsController.new)
 app.post("/burnbook", girlsController.create)
@@ -24,3 +28,5 @@ app.get("/girls/:id", girlsController.show)
 app.get("/girls/:id/edit", girlsController.edit)
 app.put("/girls/:id", girlsController.update)
 app.delete("/girls/:id", girlsController.delete)
+
+app.use(require("better-express-errors")(app))
